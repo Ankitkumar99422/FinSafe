@@ -1,0 +1,151 @@
+text,intent
+"Can I afford an 80,000 laptop?",check_purchase
+Can I buy a laptop for 80000?,check_purchase
+"Is it safe to buy a phone worth 45,000?",check_purchase
+Can I afford to buy a new TV?,check_purchase
+Should I buy a 25k watch right now?,check_purchase
+"I want to buy a bike for 1,20,000, can I?",check_purchase
+"Is buying a Rs 15,000 chair okay for me?",check_purchase
+Can I spend 5000 on shoes?,check_purchase
+Do I have enough money for a 60k camera?,check_purchase
+"Will I be able to afford a washing machine for 30,000?",check_purchase
+"Is it a good time to buy a 70,000 laptop?",check_purchase
+Can I purchase a tablet for 20000?,check_purchase
+Am I able to buy a Rs 2 lakh scooter?,check_purchase
+"Check if I can afford a 12,000 headphone",check_purchase
+I am thinking of buying a sofa for 40k. Is that fine?,check_purchase
+"Can I get a new phone for 35,000 now?",check_purchase
+"Is this 9,000 purchase safe for my budget?",check_purchase
+Can I afford it?,check_purchase
+"Would it be okay to buy a fridge worth 28,000?",check_purchase
+Can I buy something for 3000 today?,check_purchase
+Is it affordable to buy a 1.5 lakh laptop?,check_purchase
+"Should I go ahead and buy an 18,000 monitor?",check_purchase
+"Can my budget handle a 50,000 purchase?",check_purchase
+"I want a new laptop, can I buy it?",check_purchase
+"Safe to spend 10,000 on a gift?",check_purchase
+Should I pay by EMI or in one go?,compare_payment
+"Is EMI better than paying full amount for an 80,000 laptop?",compare_payment
+"Compare EMI options for a 50,000 phone",compare_payment
+"What is the monthly EMI for 60,000 over 12 months?",compare_payment
+Should I take a 6 month or 12 month EMI?,compare_payment
+Which payment option is best for me?,compare_payment
+Show me EMI versus paying now,compare_payment
+How much extra will I pay if I choose EMI?,compare_payment
+Can I pay this in instalments instead?,compare_payment
+What are my payment options for a 1 lakh purchase?,compare_payment
+Is a 12 month EMI affordable for me?,compare_payment
+Compare buying now with EMI,compare_payment
+"Pay full or EMI for 45,000?",compare_payment
+What would the EMI cost me in total?,compare_payment
+Is it cheaper to pay upfront or use EMI?,compare_payment
+"Tell me the installment for 30,000 in 6 months",compare_payment
+Which EMI tenure suits me?,compare_payment
+"Can I split the payment of my 75,000 laptop?",compare_payment
+EMI or lump sum?,compare_payment
+"What are the interest costs if I take EMI on 90,000?",compare_payment
+Should I choose a longer EMI?,compare_payment
+Give me payment options,compare_payment
+"How does a 9 month EMI look for 40,000?",compare_payment
+"Pay later or pay now for 20,000?",compare_payment
+"What is cheaper, EMI or cash?",compare_payment
+Will buying this affect my laptop goal?,goal_impact
+"How does a 20,000 purchase impact my savings goal?",goal_impact
+Will I still reach my goal if I buy this?,goal_impact
+Does this purchase delay my savings target?,goal_impact
+Check my goal progress after buying a phone,goal_impact
+Am I on track for my emergency fund?,goal_impact
+"Will spending 10,000 hurt my travel goal?",goal_impact
+How far am I from my savings goal?,goal_impact
+Would this purchase push back my goal deadline?,goal_impact
+Is my goal safe if I spend 5000?,goal_impact
+What happens to my goal if I buy a 60k laptop?,goal_impact
+Can I still save for my goal after this purchase?,goal_impact
+How much do I need to save monthly for my goal?,goal_impact
+Will my goal be delayed?,goal_impact
+Impact of this expense on my goals,goal_impact
+Do I need to extend my goal deadline if I buy this?,goal_impact
+Am I behind on my goal?,goal_impact
+Show my goal status,goal_impact
+Will a new bike affect my savings plan?,goal_impact
+"If I spend 15,000 now, will my goal suffer?",goal_impact
+How many days of delay will this cause to my goal?,goal_impact
+Is my savings target still achievable?,goal_impact
+Would buying a TV stop me from reaching my goal?,goal_impact
+Goal check please,goal_impact
+Does this affect my emergency fund goal?,goal_impact
+What is my current balance?,balance_query
+How much money do I have?,balance_query
+Show my balance,balance_query
+What's in my account right now?,balance_query
+Tell me my account balance,balance_query
+How much is in my bank?,balance_query
+Balance please,balance_query
+What is my balance today?,balance_query
+How much cash do I have available?,balance_query
+Check my balance,balance_query
+What's my available balance?,balance_query
+How much do I have in my account?,balance_query
+Current balance?,balance_query
+Can you tell me how much money I have left?,balance_query
+Show me what I have in the bank,balance_query
+What is the balance in my savings account?,balance_query
+How much money is left this month?,balance_query
+Account balance check,balance_query
+What balance do I have now?,balance_query
+Tell me how much I have,balance_query
+How much funds do I have?,balance_query
+Let me know my balance,balance_query
+What's my bank balance?,balance_query
+How much is available to spend?,balance_query
+My balance?,balance_query
+What bills are coming up?,upcoming_expenses
+What are my upcoming expenses?,upcoming_expenses
+When is my rent due?,upcoming_expenses
+What do I have to pay this month?,upcoming_expenses
+Show my upcoming payments,upcoming_expenses
+Any bills due soon?,upcoming_expenses
+How much rent do I have to pay next?,upcoming_expenses
+What expenses are coming in the next 30 days?,upcoming_expenses
+List my fixed expenses,upcoming_expenses
+What is due this week?,upcoming_expenses
+Do I have any payments coming up?,upcoming_expenses
+When is my next rent payment?,upcoming_expenses
+Tell me about upcoming bills,upcoming_expenses
+What will I need to pay next month?,upcoming_expenses
+Upcoming obligations?,upcoming_expenses
+What are my pending payments?,upcoming_expenses
+How much rent is due?,upcoming_expenses
+Show me bills for the next month,upcoming_expenses
+Which payments are due soon?,upcoming_expenses
+What's my next expense?,upcoming_expenses
+Remind me what I need to pay,upcoming_expenses
+Are there any dues coming up?,upcoming_expenses
+What fixed costs do I have this month?,upcoming_expenses
+Upcoming rent and bills,upcoming_expenses
+What payments should I expect?,upcoming_expenses
+What is the weather today?,other
+Tell me a joke,other
+Who won the cricket match?,other
+How do I cook rice?,other
+What is the capital of France?,other
+Hello,other
+Thank you,other
+Play some music,other
+What time is it?,other
+Write a poem about the sea,other
+How tall is Mount Everest?,other
+Book me a flight to Delhi,other
+Translate good morning to Hindi,other
+Tell me about movies,other
+What is your name?,other
+Who are you?,other
+Recommend a good restaurant,other
+How do I fix my laptop screen?,other
+What's the news today?,other
+Give me a recipe for pasta,other
+What is machine learning?,other
+Can you sing?,other
+Open the calendar,other
+Send an email to my boss,other
+How is the stock market today?,other

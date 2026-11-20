@@ -1,0 +1,7 @@
+# AI / ML engine dependencies (Yashika's modules). Versions below are the ones tested.
+# FastAPI / Pydantic entries belong to the service owner and can be added alongside these.
+numpy==2.5.4
+pandas==3.0.6
+scikit-learn==1.9.1
+joblib==1.6.0
+langgraph==1.2.22
