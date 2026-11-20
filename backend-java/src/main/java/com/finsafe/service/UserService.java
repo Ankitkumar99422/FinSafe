@@ -6,7 +6,6 @@ import com.finsafe.entity.Account;
 import com.finsafe.entity.User;
 import com.finsafe.repository.AccountRepository;
 import com.finsafe.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,13 +13,22 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 
 @Service
-@RequiredArgsConstructor
 public class UserService {
 
     private final UserRepository userRepository;
     private final AccountRepository accountRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtTokenProvider tokenProvider;
+
+    public UserService(UserRepository userRepository,
+                       AccountRepository accountRepository,
+                       PasswordEncoder passwordEncoder,
+                       JwtTokenProvider tokenProvider) {
+        this.userRepository = userRepository;
+        this.accountRepository = accountRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.tokenProvider = tokenProvider;
+    }
 
     @Transactional
     public AuthResponse register(RegisterRequest req) {

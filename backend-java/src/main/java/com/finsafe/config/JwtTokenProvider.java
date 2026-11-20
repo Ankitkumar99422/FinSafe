@@ -32,7 +32,7 @@ public class JwtTokenProvider {
                 .claim("userId", userId)
                 .issuedAt(now)
                 .expiration(expiryDate)
-                .signWith(getSignKey())
+                .signWith(getSigningKey())
                 .compact();
     }
 

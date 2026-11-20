@@ -3,7 +3,6 @@ package com.finsafe.service;
 import com.finsafe.dto.DashboardResponse;
 import com.finsafe.entity.*;
 import com.finsafe.repository.*;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -12,7 +11,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class DashboardService {
 
     private final UserRepository userRepository;
@@ -22,6 +20,22 @@ public class DashboardService {
     private final EmiRepository emiRepository;
     private final GoalRepository goalRepository;
     private final DecisionRepository decisionRepository;
+
+    public DashboardService(UserRepository userRepository,
+                            AccountRepository accountRepository,
+                            IncomeRepository incomeRepository,
+                            ExpenseRepository expenseRepository,
+                            EmiRepository emiRepository,
+                            GoalRepository goalRepository,
+                            DecisionRepository decisionRepository) {
+        this.userRepository = userRepository;
+        this.accountRepository = accountRepository;
+        this.incomeRepository = incomeRepository;
+        this.expenseRepository = expenseRepository;
+        this.emiRepository = emiRepository;
+        this.goalRepository = goalRepository;
+        this.decisionRepository = decisionRepository;
+    }
 
     public DashboardResponse getDashboardData(Long userId) {
         User user = userRepository.findById(userId)

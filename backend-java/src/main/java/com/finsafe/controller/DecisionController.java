@@ -5,7 +5,6 @@ import com.finsafe.entity.User;
 import com.finsafe.repository.DecisionRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +13,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/decisions")
-@RequiredArgsConstructor
 @Tag(name = "Decisions & History", description = "Endpoints for reviewing past purchase decisions and Safety Validator audits")
 public class DecisionController {
 
     private final DecisionRepository decisionRepository;
+
+    public DecisionController(DecisionRepository decisionRepository) {
+        this.decisionRepository = decisionRepository;
+    }
 
     @GetMapping
     @Operation(summary = "List all purchase decisions for current user")

@@ -3,8 +3,6 @@ package com.finsafe.service;
 import com.finsafe.dto.PurchaseDtos.*;
 import com.finsafe.entity.*;
 import com.finsafe.repository.*;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -16,8 +14,6 @@ import java.time.LocalDate;
 import java.util.*;
 
 @Service
-@RequiredArgsConstructor
-@Slf4j
 public class PurchaseService {
 
     private final AccountRepository accountRepository;
@@ -31,6 +27,20 @@ public class PurchaseService {
     private String aiServiceUrl;
 
     private final RestTemplate restTemplate = new RestTemplate();
+
+    public PurchaseService(AccountRepository accountRepository,
+                           IncomeRepository incomeRepository,
+                           ExpenseRepository expenseRepository,
+                           EmiRepository emiRepository,
+                           GoalRepository goalRepository,
+                           DecisionRepository decisionRepository) {
+        this.accountRepository = accountRepository;
+        this.incomeRepository = incomeRepository;
+        this.expenseRepository = expenseRepository;
+        this.emiRepository = emiRepository;
+        this.goalRepository = goalRepository;
+        this.decisionRepository = decisionRepository;
+    }
 
     public AnalyzeResponse analyzePurchase(Long userId, AnalyzeRequest request) {
         // 1. Load User's current financial context from Supabase

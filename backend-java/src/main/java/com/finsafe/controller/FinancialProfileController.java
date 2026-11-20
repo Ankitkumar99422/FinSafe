@@ -5,18 +5,20 @@ import com.finsafe.entity.User;
 import com.finsafe.service.FinancialProfileService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/financial-profile")
-@RequiredArgsConstructor
 @Tag(name = "Financial Profile", description = "Endpoints for managing user income, balance, expenses, and onboarding profile")
 public class FinancialProfileController {
 
     private final FinancialProfileService profileService;
+
+    public FinancialProfileController(FinancialProfileService profileService) {
+        this.profileService = profileService;
+    }
 
     @PostMapping
     @Operation(summary = "Save or update complete financial profile (Onboarding)")

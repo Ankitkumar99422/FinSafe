@@ -3,7 +3,6 @@ package com.finsafe.service;
 import com.finsafe.dto.FinancialProfileDtos.*;
 import com.finsafe.entity.*;
 import com.finsafe.repository.*;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,7 +13,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class FinancialProfileService {
 
     private final UserRepository userRepository;
@@ -23,6 +21,20 @@ public class FinancialProfileService {
     private final ExpenseRepository expenseRepository;
     private final EmiRepository emiRepository;
     private final GoalRepository goalRepository;
+
+    public FinancialProfileService(UserRepository userRepository,
+                                   AccountRepository accountRepository,
+                                   IncomeRepository incomeRepository,
+                                   ExpenseRepository expenseRepository,
+                                   EmiRepository emiRepository,
+                                   GoalRepository goalRepository) {
+        this.userRepository = userRepository;
+        this.accountRepository = accountRepository;
+        this.incomeRepository = incomeRepository;
+        this.expenseRepository = expenseRepository;
+        this.emiRepository = emiRepository;
+        this.goalRepository = goalRepository;
+    }
 
     @Transactional
     public ProfileResponse saveProfile(Long userId, ProfileSaveRequest req) {
