@@ -188,30 +188,55 @@ export default function LoginPage() {
             </p>
           </div>
 
-          {/* QUICK DEMO LOGIN BUTTONS */}
-          <div style={{ marginBottom: 20, background: "rgba(35, 155, 86, 0.08)", padding: 16, borderRadius: 12, border: "1px solid rgba(35, 155, 86, 0.2)" }}>
-            <div style={{ fontSize: 13, fontWeight: 600, color: "#53c99c", display: "flex", alignItems: "center", gap: 6, marginBottom: 10 }}>
-              <Zap size={16} /> 1-CLICK DEMO LOGIN (TEST PERSONAS)
+          {/* QUICK DEMO LOGIN BUTTONS - HIGH CONTRAST */}
+          <div style={{
+            marginBottom: 24,
+            background: "#f0fdf4",
+            padding: 16,
+            borderRadius: 14,
+            border: "1.5px solid #86efac",
+            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.04)"
+          }}>
+            <div style={{
+              fontSize: 12,
+              fontWeight: 700,
+              color: "#166534",
+              display: "flex",
+              alignItems: "center",
+              gap: 6,
+              marginBottom: 12,
+              letterSpacing: "0.5px",
+              textTransform: "uppercase"
+            }}>
+              <Zap size={15} color="#16a34a" /> 1-Click Demo Login (Test Personas)
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               <button
                 type="button"
                 onClick={() => logInWithPersona("aarav.sharma@example.com")}
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
-                  padding: "8px 12px",
-                  borderRadius: 8,
-                  border: "1px solid rgba(83, 201, 156, 0.3)",
-                  background: "rgba(255, 255, 255, 0.05)",
-                  color: "#e6f5ef",
+                  alignItems: "center",
+                  padding: "10px 14px",
+                  borderRadius: 10,
+                  border: "1.5px solid #86efac",
+                  background: "#ffffff",
+                  color: "#0f172a",
                   fontSize: 13,
+                  fontWeight: 500,
                   cursor: "pointer",
                   textAlign: "left",
+                  boxShadow: "0 1px 3px rgba(0, 0, 0, 0.06)",
+                  transition: "all 0.15s ease",
                 }}
               >
-                <span>🟢 <strong>Aarav Sharma</strong> (Healthy - ₹2.5L Balance)</span>
-                <ArrowRight size={14} />
+                <div>
+                  <span style={{ fontWeight: 700, color: "#15803d" }}>🟢 Aarav Sharma</span>
+                  <span style={{ color: "#475569", marginLeft: 6, fontSize: 12 }}>— Healthy (₹2.5L Balance)</span>
+                </div>
+                <ArrowRight size={15} color="#15803d" />
               </button>
 
               <button
@@ -220,18 +245,25 @@ export default function LoginPage() {
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
-                  padding: "8px 12px",
-                  borderRadius: 8,
-                  border: "1px solid rgba(243, 195, 72, 0.3)",
-                  background: "rgba(255, 255, 255, 0.05)",
-                  color: "#e6f5ef",
+                  alignItems: "center",
+                  padding: "10px 14px",
+                  borderRadius: 10,
+                  border: "1.5px solid #fde047",
+                  background: "#ffffff",
+                  color: "#0f172a",
                   fontSize: 13,
+                  fontWeight: 500,
                   cursor: "pointer",
                   textAlign: "left",
+                  boxShadow: "0 1px 3px rgba(0, 0, 0, 0.06)",
+                  transition: "all 0.15s ease",
                 }}
               >
-                <span>🟡 <strong>Priya Patel</strong> (High Loans - ₹42k Balance)</span>
-                <ArrowRight size={14} />
+                <div>
+                  <span style={{ fontWeight: 700, color: "#b45309" }}>🟡 Priya Patel</span>
+                  <span style={{ color: "#475569", marginLeft: 6, fontSize: 12 }}>— High Loans (₹42k Balance)</span>
+                </div>
+                <ArrowRight size={15} color="#b45309" />
               </button>
 
               <button
@@ -240,18 +272,25 @@ export default function LoginPage() {
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
-                  padding: "8px 12px",
-                  borderRadius: 8,
-                  border: "1px solid rgba(227, 107, 124, 0.3)",
-                  background: "rgba(255, 255, 255, 0.05)",
-                  color: "#e6f5ef",
+                  alignItems: "center",
+                  padding: "10px 14px",
+                  borderRadius: 10,
+                  border: "1.5px solid #fca5a5",
+                  background: "#ffffff",
+                  color: "#0f172a",
                   fontSize: 13,
+                  fontWeight: 500,
                   cursor: "pointer",
                   textAlign: "left",
+                  boxShadow: "0 1px 3px rgba(0, 0, 0, 0.06)",
+                  transition: "all 0.15s ease",
                 }}
               >
-                <span>🔴 <strong>Rahul Verma</strong> (Deficit - ₹9.5k Balance)</span>
-                <ArrowRight size={14} />
+                <div>
+                  <span style={{ fontWeight: 700, color: "#b91c1c" }}>🔴 Rahul Verma</span>
+                  <span style={{ color: "#475569", marginLeft: 6, fontSize: 12 }}>— Deficit (₹9.5k Balance)</span>
+                </div>
+                <ArrowRight size={15} color="#b91c1c" />
               </button>
             </div>
           </div>
