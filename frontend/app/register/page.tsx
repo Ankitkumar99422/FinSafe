@@ -32,8 +32,9 @@ export default function RegisterPage() {
   const [showConfirm, setShowConfirm] = useState(false);
   const [agree, setAgree] = useState(false);
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  function handleRegister(e: FormEvent<HTMLFormElement>) {
+  async function handleRegister(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setMessage("");
 
@@ -60,37 +61,60 @@ export default function RegisterPage() {
       return;
     }
 
+    setIsLoading(true);
+
     try {
-      // Save only non-sensitive registration information.
-      // Never save the password in localStorage.
+      const normalizedEmail = email.trim().toLowerCase();
 
-      const userData = {
-        name: name.trim(),
-        email: email.trim().toLowerCase(),
-        registeredAt: new Date().toISOString(),
-      };
+      // Send registration request to Java Spring Boot backend -> writes to Supabase
+      const res = await fetch("http://localhost:8080/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: name.trim(),
+          email: normalizedEmail,
+          password: password,
+          age: 25,
+          occupation: "Working Professional",
+          employmentStatus: "FULL_TIME",
+        }),
+      });
 
+      if (!res.ok) {
+        let errorMsg = "Registration failed. Email may already be in use.";
+        try {
+          const errData = await res.json();
+          if (errData && errData.message) errorMsg = errData.message;
+        } catch {
+          // keep fallback
+        }
+        throw new Error(errorMsg);
+      }
+
+      const data = await res.json();
+
+      // Store JWT token and user info
+      localStorage.setItem("finsafe_token", data.token);
       localStorage.setItem(
         "finsafe_user",
-        JSON.stringify(userData)
+        JSON.stringify({
+          name: data.fullName,
+          email: data.email,
+          userId: data.userId,
+        })
       );
 
       // Clear any previous onboarding data
-      // because this is a new registration.
-
       localStorage.removeItem("finsafe_onboarding");
       localStorage.removeItem("finsafe_onboarding_completed");
 
-      // Redirect the new user to onboarding.
-
+      // Redirect to onboarding
       router.push("/onboarding");
-
-    } catch (error) {
+    } catch (error: any) {
       console.error("Registration error:", error);
-
-      setMessage(
-        "Unable to save your information. Please try again."
-      );
+      setMessage(error?.message || "Unable to register user in database. Please check your backend.");
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -320,8 +344,9 @@ export default function RegisterPage() {
             <button
               type="submit"
               className="auth-submit"
+              disabled={isLoading}
             >
-              Create Account
+              {isLoading ? "Creating Account..." : "Create Account"}
               <ArrowRight size={18} />
             </button>
 

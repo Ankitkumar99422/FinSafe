@@ -158,6 +158,37 @@ export default function Dashboard() {
       if (savedOnboarding) {
         setOnboarding(JSON.parse(savedOnboarding));
       }
+
+      // Check for live Supabase sync via Java Spring Boot backend
+      const token = localStorage.getItem("finsafe_token");
+      if (token) {
+        fetch("http://localhost:8080/api/dashboard", {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+          .then((res) => (res.ok ? res.json() : null))
+          .then((dashData) => {
+            if (dashData) {
+              setUser((prev: any) => ({
+                ...prev,
+                name: dashData.fullName || prev?.name,
+                email: dashData.email || prev?.email,
+              }));
+              setOnboarding((prev: any) => ({
+                ...prev,
+                finances: {
+                  monthlyIncome: dashData.monthlyIncome,
+                  currentBalance: dashData.currentBalance,
+                  monthlyExpenses: dashData.monthlyExpenses,
+                  monthlyEmi: dashData.monthlyEmi,
+                },
+                goals: (dashData.goals && dashData.goals.length > 0)
+                  ? dashData.goals.map((g: any) => g.name)
+                  : prev?.goals || [],
+              }));
+            }
+          })
+          .catch((err) => console.warn("Live dashboard sync error:", err));
+      }
     } catch (error) {
       console.error("Unable to load FinSafe user data:", error);
     } finally {
