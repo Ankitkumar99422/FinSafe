@@ -19,6 +19,7 @@ import {
   PiggyBank,
   Sparkles,
 } from "lucide-react";
+import { API_BASE_URL } from "@/lib/api";
 
 const goalOptions = [
   "Emergency Fund",
@@ -209,7 +210,7 @@ export default function OnboardingPage() {
       const token = localStorage.getItem("finsafe_token");
       if (token) {
         try {
-          await fetch("http://localhost:8080/api/financial-profile", {
+          await fetch(`${API_BASE_URL}/api/financial-profile`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -218,7 +219,7 @@ export default function OnboardingPage() {
             body: JSON.stringify({
               age: profile.age ? Number(profile.age) : 25,
               occupation: profile.occupation || "Working Professional",
-              employmentStatus: profile.employmentStatus || "FULL_TIME",
+              employmentStatus: profile.employment || "FULL_TIME",
               monthlyIncome: Number(finances.monthlyIncome),
               currentBalance: Number(finances.currentBalance),
               monthlyExpenses: Number(finances.monthlyExpenses),

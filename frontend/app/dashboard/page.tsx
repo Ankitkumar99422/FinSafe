@@ -35,6 +35,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
+import { API_BASE_URL } from "@/lib/api";
 
 // TYPES
 
@@ -162,7 +163,7 @@ export default function Dashboard() {
       // Check for live Supabase sync via Java Spring Boot backend
       const token = localStorage.getItem("finsafe_token");
       if (token) {
-        fetch("http://localhost:8080/api/dashboard", {
+        fetch(`${API_BASE_URL}/api/dashboard`, {
           headers: { Authorization: `Bearer ${token}` },
         })
           .then((res) => (res.ok ? res.json() : null))
