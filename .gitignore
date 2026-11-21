@@ -1,0 +1,60 @@
+# Java & Maven
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.logs
+.mvn/
+mvnw
+mvnw.cmd
+
+# Node & Next.js
+node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+
+# IDE & Editors
+.idea/
+*.iml
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS & Secrets
+.DS_Store
+Thumbs.db
+.env
+.env.local
+.env.*.local
+*.pem
