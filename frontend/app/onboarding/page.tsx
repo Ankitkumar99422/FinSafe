@@ -118,7 +118,7 @@ export default function OnboardingPage() {
   }
 
   // Save onboarding information and open dashboard
-  function handleFinish(e: FormEvent<HTMLFormElement>) {
+  async function handleFinish(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setMessage("");
 
@@ -204,6 +204,38 @@ export default function OnboardingPage() {
         "finsafe_onboarding",
         JSON.stringify(onboardingData)
       );
+
+      // Save to Supabase via Java Spring Boot backend if token is available
+      const token = localStorage.getItem("finsafe_token");
+      if (token) {
+        try {
+          await fetch("http://localhost:8080/api/financial-profile", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+              age: profile.age ? Number(profile.age) : 25,
+              occupation: profile.occupation || "Working Professional",
+              employmentStatus: profile.employmentStatus || "FULL_TIME",
+              monthlyIncome: Number(finances.monthlyIncome),
+              currentBalance: Number(finances.currentBalance),
+              monthlyExpenses: Number(finances.monthlyExpenses),
+              monthlyEmi: finances.monthlyEmi ? Number(finances.monthlyEmi) : 0,
+              goals: goals.map((g) => ({
+                goalName: g,
+                targetAmount: Number(targetAmount) || 100000,
+                savedAmount: 0,
+                targetDate: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
+                priority: "HIGH",
+              })),
+            }),
+          });
+        } catch (apiErr) {
+          console.warn("Could not sync profile to Supabase backend:", apiErr);
+        }
+      }
 
       // Mark onboarding as completed
       localStorage.setItem("finsafe_onboarding_completed", "true");
