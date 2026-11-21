@@ -19,6 +19,7 @@ import {
   TrendingUp,
   Sparkles,
 } from "lucide-react";
+import { API_BASE_URL } from "@/lib/api";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -67,7 +68,7 @@ export default function RegisterPage() {
       const normalizedEmail = email.trim().toLowerCase();
 
       // Send registration request to Java Spring Boot backend -> writes to Supabase
-      const res = await fetch("http://localhost:8080/api/auth/register", {
+      const res = await fetch(`${API_BASE_URL}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
